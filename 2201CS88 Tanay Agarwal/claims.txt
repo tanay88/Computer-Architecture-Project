@@ -1,0 +1,142 @@
+/*****************************************************************************
+TITLE: Claims																																
+AUTHOR:	TANAY AGARWAL
+ROLL NO:	2201CS88
+Declaration of Authorship
+This txt file, claims.txt, is part of the miniproject of CS210 at the 
+Department of Computer Science and Engg, IIT Patna. 
+*****************************************************************************/
+
+Files:
+==========
+*All the files I submitted, asm.cpp and emu.cpp and claims.txt, have my name and student id at the start, along with a declaration of authorship.
+
+The evidence for Assembler, including the output files from the three test examples, has also been uploaded. They are test1(3 output files), test2(3 output files) and triangle(3 output files). All the test files have been tested and work properly. As for the evidence for the emulator is uploaded with two output files, and triangle.txt.
+
+*Both of my C++ programs did not show any errors or warnings when I compiled them with
+g++ -pedantic and g++ -pedantic -W -Wall -Wpointer-arith -Wwrite-strings standard
+
+*Two programs are compilable with g++ asm.cpp -o asm and g++ emu.cpp -o emu.
+
+
+=============================
+Program format and structure:
+=============================
+1. The assembler:
+
+	EXECUTION FORMAT: ./asm.exe filename.asm
+
+    * with two data structures to store labels and a mnemonic table with expected operands, respectively.
+    * uses a single routine for both passes.
+    * detects label errors.
+    * Consistent and sensible formatting with sensible program structure. 
+    * sensible variable, function & type names with explanatory comments.
+		* advanced listing file.
+		* assembles test programs.
+
+2. The emulator  :
+
+	EXECUTION FORMAT: ./emu.exe filename.o
+
+		* with three data structures to store respectively memory, mnemonic table with expected operands
+		  and a linked list structure word.
+    * loads object file, 
+    * by giving the instructions like "-before/-after", the program can produce a memory dump before/after execution.
+    * by giving the instruction "-trace", the program prints the result of the program executed.
+    * detects errant programs.
+
+
+=============================
+Testing:
+=============================
+
+1. The assembler:
+
+I have tested three examples shown below. The errors only occurred in the file test2.asm and 
+the program immediately stopped on the second pass. 
+
+The others were tested without any errors detected and produced three output files, a listing file, 
+error log file and machine-readable object file for each example. 
+
+After comparing the listing files and object files of memcpy.asm, memcpy.l, triangle.l memcpy.o 
+with the implemented result given on the assignment, both of them show no difference 
+from those provided( if there is different  that is fine too) 
+ 
+
+1)
+#Input: asm test1.asm
+#Output: 
+a. test1.l 
+b. test1.log (without any error messages)
+c. test1.o
+
+2)
+#Input:asm test2.asm
+#Output: 
+a. test2.l 
+b. test2.log (without error messages)
+c. test2.o
+
+
+4)
+#Input:asm BubbleSort.asm
+#Output: 
+a. BubbleSort.l 
+b. BubbleSort.log (without any error messages)
+c. BubbleSort.o
+
+
+
+2. The emulator:
+
+I have tested three examples shown below.
+
+The others were tested without any errors detected and produced execution data both on the screen and 
+output text file for each example according to the usage instruction. 
+
+After running the bin file given, the trace data are the same as 
+the implemented result from my program.
+
+1)
+#Input: emu -trace BubbleSort.asm
+#Output: BubbleSort_memdump.txt
+
+0x00000000	0x00100000	0x0000000b	0xffffff0a	0x00000b00
+0x00000004	0x00000003	0x00004c00	0x0000010d	0x00000012
+0x00000008	0xffffff0a	0x00000003	0x00000203	0xfffffd0a
+0x0000000c	0x00000000	0x00000003	0x00000100	0x00000103
+0x00000010	0x00000000	0x00000203	0x00000402	0x00000202
+0x00000014	0x00000007	0x00000100	0x00000007	0x0000310f
+0x00000018	0x00000100	0x00000103	0x00000402	0x00000202
+0x0000001c	0x00000007	0x00000102	0x00000007	0x0000210f
+0x00000020	0x00000502	0x00000102	0x00000100	0x00000007
+0x00000024	0x00000502	0x00000006	0x00000603	0x00000102
+0x00000028	0x00000502	0x00000006	0x00000703	0x00000702
+0x0000002c	0x00000004	0x00000602	0x00000004	0x00000007
+0x00000030	0x00000110	0x00000a11	0x00000602	0x00000004
+0x00000034	0x00000003	0x00000702	0x00000004	0x00000602
+0x00000038	0x00000005	0x00000002	0x00000702	0x00000005
+0x0000003c	0x00000100	0x00000102	0x00000006	0x00000103
+0x00000040	0xffffd911	0x00000100	0x00000202	0x00000006
+0x00000044	0x00000203	0x00000100	0x00000502	0x00000006
+0x00000048	0xffffc911	0x00000302	0x0000050a	0x0000000e
+0x0000004c	0x00000000	0x00000000	0x00000001	0x00000002
+0x00000050	0x00000003	0x00000004	0x00000005	0x00000006
+0x00000054	0x00000007	0x00000008	0x00000009
+
+
+2)#Input:asm test1.asm
+#Output: test1_memdump.txt
+
+0x00000000	0x00000004	0x00000200	0x00000007	0x00000410
+0x00000004	0x00000400	0x00000000	0x00000005	0x00000411
+0x00000008	0x00000200	0x00000000	0x00000005	0x00000011
+0x0000000c	0x00000012
+
+3)#Input:asm test2.asm
+#Output: test2_memdump.txt
+
+
+0x00000000	0x00000800	0x00000004	0x00000900	0x00000004
+0x00000004	0x00000006	0x00000a00	0x00000005	0x00000012
+0x00000008	0x00000004	0x00000005	0x00000009
